@@ -1,10 +1,14 @@
 pipeline {
     agent any
 
+    tools {
+        maven 'Maven'
+    }
+
     stages {
-        stage('Hello') {
+        stage('Build WAR') {
             steps {
-                echo 'My first Jenkins pipeline'
+                sh 'mvn clean package'
             }
         }
     }
